@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example stage 1') {
+            steps {
+                withCredentials(bindings: [sshUserPrivateKey(credentialsId: '', \
+                                                             keyFileVariable: 'SSH_KEY_FOR_ABC')]) {
+                                                                sh 'ssh -t ${password} ec2-user@35.88.242.190'
+                                                                sh 'chmod 400 ${password}'
+                                                                sh 'ssh -tt ${password} ec2-user@35.88.242.190'
+                                                                sh 'ls'
+        
+}
+                }
+                
+                  
+            }
+            }
+        }
